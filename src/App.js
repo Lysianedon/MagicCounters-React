@@ -1,5 +1,5 @@
 import React from "react";
-import Buttons from "./components/Buttons";
+import Button from "./components/Buttons";
 
 //01 - COMPTEUR -----------------------------------
 
@@ -20,12 +20,13 @@ class App extends React.Component {
       <h1>Counter : </h1>
       <h2 style={{marginLeft: 53}}>{this.state.count}</h2>
 
-      <Buttons content=" + " bgColor = "#d81832" onClick={() => {
-        this.setState({count : "test +"})
+      <Button content=" + " bgColor = "#d81832" onClick={() => {
+
+        this.setState({count : this.state.count + 1})
       }}/>
 
-      <Buttons content=" - " bgColor = "#90EF90" onClick={() => {
-        this.setState({ count : "test - "})
+      <Button content=" - " bgColor = "#90EF90" onClick={() => {
+        this.setState({ count : this.state.count - 1 })
       }}/>
       
     </div>
