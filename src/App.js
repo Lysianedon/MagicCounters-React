@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "./components/Buttons";
+import Counter from "./components/Counter.js";
+
 
 //01 - COMPTEUR -----------------------------------
 
@@ -14,25 +15,20 @@ class App extends React.Component {
   }
 
   render(){
+    
+    const counter1 = {...this.state, increment: this.state.count + 1, substract: this.state.count - 1};
+    const counter2 = {...this.state, increment: this.state.count + 1, substract: this.state.count - 1};
 
-  return (
-    <div>
-      <h1>Counter : </h1>
-      <h2 style={{marginLeft: 53}}>{this.state.count}</h2>
+    return (
+      <div>
+        <h1>COUNTER: </h1>
+        <Counter className="counter1"/>
 
-      <Button content=" + " bgColor = "#d81832" onClick={() => {
-
-        this.setState({count : this.state.count + 1})
-      }}/>
-
-      <Button content=" - " bgColor = "#90EF90" onClick={() => {
-        this.setState({ count : this.state.count - 1 })
-      }}/>
-      
-    </div>
-  )
+        <Counter className="counter2"/>
+        <p>Made with <span>React</span> </p>
+      </div>
+    )
 }
 }
-
 
 export default App;
