@@ -66,6 +66,17 @@ class App extends React.Component {
     });
   }
 
+ substractBoth() {
+   this.setState((prevState) => {
+
+    return {
+      count : prevState.count - 1,
+      count2 : prevState.count2 -1
+    };
+
+   });
+ }
+
   render(){
     
     // const counter1 = {...this.state, increment: this.state.count + 1, substract: this.state.count - 1};
@@ -75,13 +86,14 @@ class App extends React.Component {
       <div>
         <h1>COUNTER: </h1>
 
+      {/* Creating a condition to check if both of my counters have the same value : if so, incrementing the counter1 will also increment the counter 2, and decrementing the counter2 will also decrement the counter 1 */}
         {
-          this.state.count === this.state.count2 ? ( <Counter count={this.state.count} increment={this.increment} substract={this.substract}/>
-            <Counter count={this.state.count2} increment={this.increment2} substract={this.substract2}/>)
+          this.state.count === this.state.count2 ? ( <div> <Counter count={this.state.count} increment={this.incrementBoth} substract={this.substract}/>
+            <Counter count={this.state.count2} increment={this.increment2} substract={this.substractBoth}/> </div>) : ( <div>  <Counter count={this.state.count} increment={this.increment} substract={this.substract}/>
+        <Counter count={this.state.count2} increment={this.increment2} substract={this.substract2}/> </div> )
         }
 
-        <Counter count={this.state.count} increment={this.increment} substract={this.substract}/>
-        <Counter count={this.state.count2} increment={this.increment2} substract={this.substract2}/>
+
         <p>Made with <span>React</span> </p>
       </div>
     )
